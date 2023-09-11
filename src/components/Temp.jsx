@@ -10,7 +10,7 @@ const Temp = () => {
      e.preventDefault();
 
    
-          const { data } = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${search}&appid=8095f617db3fe7d3bcd878c72b7fa648`);
+          const { data } = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${search}&appid=apikey`);
           console.log(data);
           setCity(data.main);
           // setCity(city);
