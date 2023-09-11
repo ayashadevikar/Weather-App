@@ -60,6 +60,3 @@ export default Temp
 
 
 
-// api key = 8095f617db3fe7d3bcd878c72b7fa648
-
-// 7daysforecast = 0c18256d37ee54b00448cb3ae5c6df06
