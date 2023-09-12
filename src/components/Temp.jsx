@@ -1,57 +1,55 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import WeatherDetails from './WeatherDetails';
+
+
 
 const Temp = () => {
 
-   const [city, setCity] = useState({});
+   const [city, setCity] = useState([]);
    const [search, setSearch] = useState("");
+
+   const apikey= `8095f617db3fe7d3bcd878c72b7fa648`;
 
    const fetchWeatherData = async (e)=> {
      e.preventDefault();
-
+     if(search === ""){
+      alert("Enter any City Name")
+      return;
+ }
    
-          const { data } = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${search}&appid=apikey`);
+          const { data } = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${search}&units=metric&appid=${apikey}`);
           console.log(data);
-          setCity(data.main);
-          // setCity(city);
+          // setCity(data);
+          
+          const city = data
+          setCity(city);
        
     }
 
 useEffect(() => {
-  //  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${search}&appid=8095f617db3fe7d3bcd878c72b7fa648`)
-},[search])
-//   useEffect( () => {
-//      fetch(`https://api.openweathermap.org/data/2.5/weather?q=${search}&appid=8095f617db3fe7d3bcd878c72b7fa648')
-//   },[search])
+     
+},[])
 
   return (
     <>
-       <div className='border-2 border-black w-96 h-[70vh] flex flex-col justify-center items-center m-auto '>
-            <h1>Weather App</h1>
-            <form>
-                 <input className='' type="text" value={search} onChange={(e)=> setSearch(e.target.value)} placeholder='Enter any City Name'/>
-                  <button onClick={fetchWeatherData}>Search</button> 
-            </form>
-
-      <div>
-         <h1>{city.name}</h1>
-         <p>{city.temp}</p>
-         <p>{city.humidity}</p>
-         <p>{city.temp_max}</p>
-         <p>{city.temp_min}</p>
-     </div>
-           
-           
-       </div>
-
-
-       {/* {
+       <div className='border-2 border-black bg-cyan-100 w-[40vw] h-[70vh] flex flex-col gap-y-10 justify-center items-center m-auto '>
+            <h1 className='text-3xl font-bold'>Weather App</h1>
           
-               city.map((i)=> (
-                   <weather name={i.name}  key={i.id} />
-               ))
-            
-       } */}
+              <form>
+           
+             
+                 <input className='border-2  p-2 rounded-lg' type="text" value={search} onChange={(e)=> setSearch(e.target.value)} placeholder='Enter any City Name'/>
+                  <button onClick={fetchWeatherData} className='border-2 p-2 px-4 rounded-lg bg-stone-400 hover:bg-stone-500 hover:text-white'>Search</button> 
+          
+              
+                
+                </form>   
+              
+           
+          <WeatherDetails city={city}/>
+       
+       </div>
     </>
   )
 }
