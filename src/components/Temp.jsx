@@ -29,14 +29,36 @@ const Temp = () => {
 
 useEffect(() => {
      
-},[])
+},[search])
 
   return (
     <>
-       <div className='border-2 border-black bg-cyan-100 w-[40vw] h-[70vh] flex flex-col gap-y-10 justify-center items-center m-auto '>
+
+      {/* mobile view  */}
+
+      <div className='md:hidden border-2 border-black bg-cyan-100 flex-wrap mt-20 p-10 rounded-md flex flex-col gap-y-10  justify-center items-center m-auto '>
             <h1 className='text-3xl font-bold'>Weather App</h1>
           
               <form>
+           
+             
+                 <input className='border-2  p-2 rounded-lg' type="text" value={search} onChange={(e)=> setSearch(e.target.value)} placeholder='Enter any City Name'/>
+                  <button onClick={fetchWeatherData} className='border-2 p-2 px-4 rounded-lg bg-stone-400 hover:bg-stone-500 hover:text-white'>Search</button> 
+          
+              
+                
+                </form>   
+              
+           
+          <WeatherDetails city={city}/>
+       
+       </div>
+
+      {/* laptop view */}
+       <div className='hidden md:block  border-2 border-black bg-cyan-100 w-[40vw] text-center  mt-20 p-10 rounded-md  m-auto '>
+            <h1 className='text-3xl font-bold p-2'>Weather App</h1>
+          
+              <form className='p-4'>
            
              
                  <input className='border-2  p-2 rounded-lg' type="text" value={search} onChange={(e)=> setSearch(e.target.value)} placeholder='Enter any City Name'/>

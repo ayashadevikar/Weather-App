@@ -5,7 +5,7 @@ const WeatherDetails = ({city}) => {
     <>
      {
    
-      <div className='grid grid-cols-2 gap-2 gap-x-32'>
+      <div className='grid grid-cols-2 gap-2 gap-x-30'>
      
          <h1>City Name: {city?.name}</h1>
          <p>Description: {city?.weather?.[0]?.description}</p>
