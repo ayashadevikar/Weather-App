@@ -1,6 +1,6 @@
 ## React Weather App
 
-[Live Link]()
+[Live Link](https://weather-peach-eta.vercel.app/)
 
 ## MyOutput
 
