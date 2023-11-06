@@ -13,8 +13,7 @@ const WeatherDetails = ({city}) => {
          <p>Humidity: {city?.main?.humidity}</p>
          <p>Max_Temp: {city?.main?.temp_max}</p>
          <p>Min_Temp: {city?.main?.temp_min}</p>
-         <p>Sunrise: {city?.sys?.sunrise}</p>
-         <p>Sunset: {city?.sys?.sunset}</p>   
+       
      
        </div> 
        

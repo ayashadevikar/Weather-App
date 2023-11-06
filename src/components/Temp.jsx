@@ -18,7 +18,7 @@ const Temp = () => {
       return;
  }
    
-          const { data } = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${search}&units=metric&appid=${apikey}`);
+          const { data } = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${search}&units=metric&timezone_offset=UTC&appid=${apikey}`);
           console.log(data);
           // setCity(data);
           
